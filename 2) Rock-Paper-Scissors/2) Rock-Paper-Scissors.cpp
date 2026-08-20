@@ -62,8 +62,6 @@ size_t random_choice(int arr_size) {
 
 int game_loop() 
 {
-    // Optimize the random choice to be more broad for other RNGs.
-
 	cout << "\n" << custom_messages::input_messages[random_choice(custom_messages::input_messages.size())] << "\n"
          << "(INPUT: ROCK, PAPER, SCISSORS)\n";
 
@@ -71,7 +69,7 @@ int game_loop()
     std::transform(user_input.begin(), user_input.end(), user_input.begin(), ::toupper); // Convert to Uppercase
 
     if (!(std::find(game_elements.begin(), game_elements.end(), user_input) != game_elements.end())) {
-        cout << custom_messages::loser_messages[random_choice(custom_messages::loser_messages.size())] << "\n\n"; // (TODO: Funny idea, make this more unhinged with more errors.)
+        cout << custom_messages::loser_messages[random_choice(custom_messages::loser_messages.size())] << "\n\n";
         return game_loop();
     }
 
