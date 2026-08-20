@@ -8,6 +8,6 @@ Progress:
 - Random Robot Fight 
 - Comparison of Results 
 - Pointer System
-- Special Text (Next)
-- Player Names
+- Special Text 
+- Player Names (Next)
 - Singleplayer or Multiplayer
