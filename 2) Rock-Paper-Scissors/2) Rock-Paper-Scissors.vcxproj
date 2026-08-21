@@ -139,7 +139,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="2) Rock-Paper-Scissors.cpp" />
+    <ClCompile Include="Rock-Paper-Scissors.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />

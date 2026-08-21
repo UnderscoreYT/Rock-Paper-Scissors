@@ -10,4 +10,6 @@ Progress:
 - Pointer System
 - Special Text 
 - Player Names (Next)
-- Singleplayer or Multiplayer
+
+Project Criticisms:
+- Global Variables are hard to manage and is better if they are encapsulated in a class or function.
