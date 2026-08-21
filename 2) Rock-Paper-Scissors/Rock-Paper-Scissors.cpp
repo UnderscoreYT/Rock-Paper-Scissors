@@ -20,7 +20,7 @@ private:
 
 public:
 
-    string colorize_text(string text, string color_code) { //Todo: Fix this error bro.
+    string colorize_text(string text, string color_code) {
         return color_codes[color_code] + text + "\033[0m";
     }
 
@@ -48,7 +48,6 @@ std::unordered_map<string, string> win_conditions = { // Ex. You can only win as
     {"PAPER", "ROCK"},
     {"SCISSORS", "PAPER"}
 };
-string player_name;
 
 
 
@@ -56,7 +55,7 @@ string player_name;
 
 static size_t random_choice(int arr_size) {
 	static std::mt19937 generator(std::random_device{}()); // Random number generator. It's magic.
-    std::uniform_int_distribution<size_t> distribution(0, game_elements.size() - 1); // Distribution of range
+    std::uniform_int_distribution<size_t> distribution(0, arr_size - 1); // Distribution of range
 
     size_t random_index = distribution(generator); // Here's the random index.
 
@@ -66,6 +65,7 @@ static size_t random_choice(int arr_size) {
 
 class Game {
 private:
+    string player_name;
     bool game_ongoing = true;
 	int round_number = 0;
     int player_points = 0;
@@ -132,6 +132,10 @@ public:
         }
     }
 
+	void set_player_name(const string& name) {
+		player_name = name;
+	}
+
     void loop_game() {
 		while (game_ongoing) {
 			main_game();
@@ -145,10 +149,11 @@ int main()
     cout << CUSTM_MSG.colorize_text("------ ROCK, PAPER, SCISSORS! (FINAL VERSION) ------", "BLUE") << "\n"
          << CUSTM_MSG.colorize_text("          By Darileo Rafael R. Esplana", "YELLOW") << "\n\n";
 
-    // Initial Configurations
-    Game game;
+    // Player Name and Initialization
+	Game game; string player_name;
 	cout << "\nWhat is your name, player?\n";
     std::getline(cin, player_name);
+	game.set_player_name(player_name);
     cout << "\nOkay, " << player_name
         << ", let's play!\n\n";
 
